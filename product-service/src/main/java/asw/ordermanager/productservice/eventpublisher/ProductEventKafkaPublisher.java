@@ -1,8 +1,11 @@
 package asw.ordermanager.productservice.eventpublisher;
 
 import asw.ordermanager.common.api.event.DomainEvent;
+import asw.ordermanager.productservice.api.event.ProductCreatedEvent;
 import asw.ordermanager.productservice.api.event.ProductServiceEventChannel;
+import asw.ordermanager.productservice.api.event.ProductStockLevelUpdatedEvent;
 import asw.ordermanager.productservice.domain.ProductEventPublisher;
+import org.apache.kafka.common.protocol.types.Field;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
@@ -17,11 +20,20 @@ public class ProductEventKafkaPublisher implements ProductEventPublisher {
     @Autowired
     private KafkaTemplate<String, DomainEvent> template;
 
-    private String channel = ProductServiceEventChannel.channel;
+    private String channelCreated = ProductServiceEventChannel.channel;
+
+    private String channelUpdate = ProductServiceEventChannel.channelUpdate;
 
     @Override
     public void publish (DomainEvent event){
-        logger.info("EVENT PUBLISHER" + event.toString() + "ON CHANNEL: " + channel);
-        template.send(channel, event);
+        if (event instanceof ProductCreatedEvent ev) {
+            logger.info("EVENT PUBLISHER" + ev.toString() + "ON CHANNEL: " + channelCreated);
+            template.send(channelCreated, ev);
+        }
+        //logger.info("EVENT PUBLISHER" + event.toString() + "ON CHANNEL: " + channelUpdate);
+        if (event instanceof ProductStockLevelUpdatedEvent ev) {
+            logger.info("EVENT PUBLISHER" + event.toString() + "ON CHANNEL: " + channelUpdate);
+            template.send(channelUpdate, ev);
+        }
     }
 }

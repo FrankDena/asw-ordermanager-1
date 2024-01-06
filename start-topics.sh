@@ -15,3 +15,7 @@ echo Creating the second channel "product-service-event-channel"...
 
 docker exec -it $KAFKA_DOCKER kafka-topics.sh --bootstrap-server localhost:9092 --create --topic product-service-event-channel --replication-factor 1 --partitions 4
 
+echo Creating the third channel "product-update-service-event-channel"...
+
+docker exec -it $KAFKA_DOCKER kafka-topics.sh --bootstrap-server localhost:9092 --create --topic product-update-service-event-channel --replication-factor 1 --partitions 4
+
