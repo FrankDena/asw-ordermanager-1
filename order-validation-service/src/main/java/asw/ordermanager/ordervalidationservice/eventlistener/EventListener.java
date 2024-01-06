@@ -15,7 +15,7 @@ public class EventListener {
     private final Logger logger = Logger.getLogger(this.getClass().toString());
 
 
-    @KafkaListener(topics = {OrderServiceEventChannel.channel, ProductServiceEventChannel.channel})
+    @KafkaListener(topics = {OrderServiceEventChannel.channel, ProductServiceEventChannel.channel, ProductServiceEventChannel.channelUpdate})
     public void listen(ConsumerRecord<String, DomainEvent> record) throws Exception {
         logger.info("EVENT LISTENER: " + record.toString());
     }
