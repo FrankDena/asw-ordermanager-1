@@ -1,8 +1,10 @@
 package asw.ordermanager.ordervalidationservice.domain;
 
-import lombok.*; 
+import jakarta.persistence.Entity;
+import lombok.*;
 
-/* Prodotto con inventario. */ 
+/* Prodotto con inventario. */
+@Entity
 @Data 
 @NoArgsConstructor @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)

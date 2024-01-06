@@ -1,10 +1,15 @@
 package asw.ordermanager.ordervalidationservice.domain;
 
-import java.util.*; 
+import java.util.*;
 
-import lombok.*; 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import lombok.*;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-/* Ordine. */ 
+/* Ordine. */
+@Entity
+@Table(name="ORDERS")
 @Data 
 @NoArgsConstructor @AllArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
