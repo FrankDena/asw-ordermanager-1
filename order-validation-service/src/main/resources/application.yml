@@ -6,7 +6,7 @@ spring:
   # CONSUL 
   cloud:
     consul:
-      host: localhost
+      host: consul
       port: 8500
       discovery: 
         instanceId: ${spring.application.name}-host.docker.internal-${random.value}
@@ -17,13 +17,13 @@ spring:
         healthCheckCriticalTimeout: 45s
         # consul deve restituire solo servizi che passano l'health check (default=false) 
         queryPassing: true
-        hostname: host.docker.internal
+        #hostname: host.docker.internal
     loadbalancer: 
       ribbon.enabled: false
   # POSTGRES
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5434/ordervalidationservice
+    url: jdbc:postgresql://host.docker.internal:5434/ordervalidationservice
     username: postgres
     password: postgres
   # JPA
@@ -36,7 +36,7 @@ spring:
           lob:
             non_contextual_creation: true
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: create
     show-sql: false
   # KAFKA
   kafka:

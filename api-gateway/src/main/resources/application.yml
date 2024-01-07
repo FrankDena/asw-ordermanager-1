@@ -5,7 +5,7 @@ spring:
     name: apigateway
   cloud:
     consul:
-      host: localhost
+      host: consul
       port: 8500
       discovery: 
         instanceId: ${spring.application.name}-host.docker.internal-${random.value}
@@ -16,7 +16,7 @@ spring:
         healthCheckCriticalTimeout: 45s
         # consul deve restituire solo servizi che passano l'health check (default=false) 
         queryPassing: true
-        hostname: host.docker.internal
+        #hostname: host.docker.internal
     loadbalancer: 
       ribbon.enabled: false 
     # spring cloud gateway routes 

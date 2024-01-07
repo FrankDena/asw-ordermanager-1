@@ -1,6 +1,13 @@
 version: '3'
 
 services:
+  #CONSUL
+  consul:
+      image: docker.io/hashicorp/consul
+      ports:
+        - "8500:8500"
+
+  #DATABASES
   orders:
     container_name: postgres_orderservice
     image: docker.io/postgres:latest
@@ -37,6 +44,7 @@ services:
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: postgres
 
+  #KAFKA
   kafka:
     container_name: kafka
     image: docker.io/bitnami/kafka:3.6
@@ -55,6 +63,40 @@ services:
       - KAFKA_CFG_LISTENER_SECURITY_PROTOCOL_MAP=CONTROLLER:PLAINTEXT,PLAINTEXT:PLAINTEXT
       - KAFKA_CFG_CONTROLLER_LISTENER_NAMES=CONTROLLER
       - KAFKA_CFG_INTER_BROKER_LISTENER_NAME=PLAINTEXT
+
+  #SERVICES
+  order-service:
+    image: haowe/asw-ordermanager:order-service-1.2
+    depends_on:
+      - "consul"
+    deploy:
+      replicas: 2
+
+  product-service:
+    image: haowe/asw-ordermanager:product-service-1.2
+    depends_on:
+      - "consul"
+    deploy:
+     replicas: 2
+
+
+  order-validation-service:
+    image: haowe/asw-ordermanager:order-validation-service-1.2
+    depends_on:
+      - "consul"
+    deploy:
+      replicas: 2
+
+
+  api-gateway:
+    image: haowe/asw-ordermanager:api-gateway-1.2
+    ports:
+      - "8080:8080"
+    depends_on:
+      - "consul"
+    deploy:
+      replicas: 1
+
 
 volumes:
   kafka_data:
