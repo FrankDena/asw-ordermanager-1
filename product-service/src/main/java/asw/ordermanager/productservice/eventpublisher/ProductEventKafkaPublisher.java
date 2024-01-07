@@ -27,12 +27,12 @@ public class ProductEventKafkaPublisher implements ProductEventPublisher {
     @Override
     public void publish (DomainEvent event){
         if (event instanceof ProductCreatedEvent ev) {
-            logger.info("EVENT PUBLISHER" + ev.toString() + "ON CHANNEL: " + channelCreated);
+            logger.info("EVENT PUBLISHER: " + ev.toString() + "ON CHANNEL: " + channelCreated);
             template.send(channelCreated, ev);
         }
         //logger.info("EVENT PUBLISHER" + event.toString() + "ON CHANNEL: " + channelUpdate);
         if (event instanceof ProductStockLevelUpdatedEvent ev) {
-            logger.info("EVENT PUBLISHER" + event.toString() + "ON CHANNEL: " + channelUpdate);
+            logger.info("EVENT PUBLISHER: " + event.toString() + "ON CHANNEL: " + channelUpdate);
             template.send(channelUpdate, ev);
         }
     }

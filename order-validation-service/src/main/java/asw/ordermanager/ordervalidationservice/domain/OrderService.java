@@ -16,9 +16,9 @@ public class OrderService {
     @Autowired
     private OrderRepository orderRepository;
 
-    public Order updateOrders(String customer, String address, List<OrderItemElement> orderItems, Double total) {
+    public Order updateOrders(String customer, List<OrderItemElement> orderItems) {
         logger.info("UPDATE ORDERS BY ORDER VALIDATION SERVICE");
-        Order order = new Order(customer, toOrderItems(orderItems), total);
+        Order order = new Order(customer, toOrderItems(orderItems));
         order = orderRepository.save(order);
         return order;
     }

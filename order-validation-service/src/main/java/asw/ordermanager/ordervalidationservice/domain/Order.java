@@ -21,13 +21,13 @@ public class Order implements Comparable<Order> {
 	private String customer;
 	@ElementCollection(fetch = FetchType.EAGER)
 	private List<OrderItem> orderItems;
-	private double total;
+	//private double total;
 
-	public Order(String customer, List<OrderItem> orderItems, double total) {
+	public Order(String customer, List<OrderItem> orderItems) {
 		this();
 		this.customer = customer;
 		this.orderItems = orderItems;
-		this.total = total;
+		//this.total = total;
 	}
 
 	@Override

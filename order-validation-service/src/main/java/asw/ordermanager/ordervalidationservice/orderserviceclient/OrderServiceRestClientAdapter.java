@@ -46,10 +46,9 @@ public class OrderServiceRestClientAdapter implements OrderServiceClientPort {
 			return null; 
 		}
 		return new Order(
-			or.getId(), 
-			or.getCustomer(), 
-			toOrderItems(or.getOrderItems()), 
-			or.getTotal());
+			or.getId(),
+			or.getCustomer(),
+			toOrderItems(or.getOrderItems()));
 	}
 
 	/* Converte un OrderItemElement in un OrderItem. */ 

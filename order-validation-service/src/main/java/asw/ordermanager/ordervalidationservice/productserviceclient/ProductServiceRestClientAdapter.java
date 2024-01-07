@@ -65,8 +65,7 @@ public class ProductServiceRestClientAdapter implements ProductServiceClientPort
 		}
 		return new Product(
 			pr.getName(), 
-			pr.getStockLevel(), 
-			pr.getPrice());
+			pr.getStockLevel());
 	}
 
 	private List<Product> toProducts(GetProductsResponse pr) {
