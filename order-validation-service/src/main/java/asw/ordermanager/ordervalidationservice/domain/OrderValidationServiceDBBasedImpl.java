@@ -8,25 +8,31 @@ import java.util.stream.*;
 import java.util.function.Function; 
 
 @Service 
-public class OrderValidationServiceRestBasedImpl implements OrderValidationService {
+public class OrderValidationServiceDBBasedImpl implements OrderValidationService {
 
-	@Autowired 
+	/*@Autowired
 	private OrderServiceClientPort orderServiceClient;
 
 	@Autowired 
-	private ProductServiceClientPort productServiceClient;
+	private ProductServiceClientPort productServiceClient;*/
+
+	@Autowired
+	private OrderService orderService;
+
+	@Autowired
+	private ProductService productService;
 
 	/* Verifica la validità di un ordine. 
 	 * Nota: con una sola chiamata REST trova tutti i prodotti dell'ordine. */ 
 	public OrderValidation validateOrder(Long id) {
-		Order order = orderServiceClient.getOrder(id); 
+		Order order = orderService.getOrder(id);
 		String motivation = ""; 
 		if (order==null) {
 			motivation += "L'ordine " + id + " non esiste.";
 			return new OrderValidation(id, order, false, motivation);
 		}
 		List<String> productNames = toProductNames(order.getOrderItems()); 
-		List<Product> products = productServiceClient.getProductsByNames(productNames); 
+		List<Product> products = productService.getProductsByNames(productNames);
 		Map<String,Product> productMap = toProductMap(products); 
 		
 		boolean isValid = true; 

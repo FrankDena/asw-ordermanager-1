@@ -3,6 +3,8 @@ package asw.ordermanager.ordervalidationservice.domain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+import java.util.List;
 import java.util.logging.Logger;
 
 @Service
@@ -24,6 +26,11 @@ public class ProductService {
     public Product getProduct(String name) {
         Product product = productRepository.findById(name).orElse(null);
         return product;
+    }
+
+    public List<Product> getProductsByNames(List<String> names) {
+        List<Product> products = (List<Product>) productRepository.findByNameIn(names);
+        return products;
     }
 
     public Product updateProductStockLevel(String name, int stockLevelVariation) {

@@ -49,7 +49,7 @@ public class ProductService {
 		Product product = getProduct(name); 
 		product.setStockLevel(product.getStockLevel() + stockLevelVariation);
 		product = productRepository.save(product);
-		DomainEvent event = new ProductStockLevelUpdatedEvent(product.getName(), product.getStockLevel());
+		DomainEvent event = new ProductStockLevelUpdatedEvent(product.getName(), stockLevelVariation);
 		productEventPublisher.publish(event);
 		return product;
 	}

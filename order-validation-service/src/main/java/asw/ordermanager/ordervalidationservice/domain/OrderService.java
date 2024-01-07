@@ -23,6 +23,10 @@ public class OrderService {
         return order;
     }
 
+    public Order getOrder(Long id) {
+        Order order = orderRepository.findById(id).orElse(null);
+        return order;
+    }
 
 
     //LI INSERISCO QUA PER ORA. DA MODIFICARE
