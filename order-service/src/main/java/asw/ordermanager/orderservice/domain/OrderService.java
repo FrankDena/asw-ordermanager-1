@@ -2,10 +2,9 @@ package asw.ordermanager.orderservice.domain;
 
 import asw.ordermanager.common.api.event.DomainEvent;
 import asw.ordermanager.orderservice.api.event.OrderCreatedEvent;
-import asw.ordermanager.orderservice.api.event.OrderItemElement;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
+import asw.ordermanager.orderservice.api.rest.OrderItemElement;
 
 import java.util.*; 
 
