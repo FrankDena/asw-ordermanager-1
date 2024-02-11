@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-ordervalidationservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres-ordervalidationservice
+  template:
+    metadata:
+      labels:
+        app: postgres-ordervalidationservice
+    spec:
+      containers:
+        - name: postgres-ordervalidationservice
+          image: docker.io/postgres:latest
+          env:
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              value: postgres
+            - name: POSTGRES_DB
+              value: ordervalidationservice
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: postgres-data
+              mountPath: /docker-entrypoint-initdb.d
+      volumes:
+        - name: postgres-data
+          hostPath:
+            path: /run/desktop/mnt/host/c/Users/h.zheng/var/data/ordersproducts
+            type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-ordervalidationservice
+spec:
+  selector:
+    app: postgres-ordervalidationservice
+  ports:
+    - protocol: TCP
+      port: 5434
+      targetPort: 5432

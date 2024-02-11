@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-productservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres-productservice
+  template:
+    metadata:
+      labels:
+        app: postgres-productservice
+    spec:
+      containers:
+        - name: postgres-productservice
+          image: docker.io/postgres:latest
+          env:
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              value: postgres
+            - name: POSTGRES_DB
+              value: productservice
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: postgres-data
+              mountPath: /docker-entrypoint-initdb.d
+      volumes:
+        - name: postgres-data
+          hostPath:
+            path: /run/desktop/mnt/host/c/Users/h.zheng/var/data/products
+            type: DirectoryOrCreate
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-productservice
+spec:
+  selector:
+    app: postgres-productservice
+  ports:
+    - protocol: TCP
+      port: 5433
+      targetPort: 5432

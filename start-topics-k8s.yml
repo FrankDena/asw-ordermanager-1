@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: init-kafka-topics
+spec:
+  template:
+    spec:
+      containers:
+        - name: init-kafka-topics
+          image: bitnami/kubectl:latest
+          command: ["/bin/bash", "-c"]
+          args:
+            - |
+              KAFKA_DOCKER=$(kubectl get pods | grep kafka | grep -v zookeeper | awk '{print $1}')
+              kubectl exec $KAFKA_DOCKER -- kafka-topics.sh --bootstrap-server kafka:9092 --create --topic order-service-event-channel --replication-factor 1 --partitions 4
+              kubectl exec $KAFKA_DOCKER -- kafka-topics.sh --bootstrap-server kafka:9092 --create --topic product-service-event-channel --replication-factor 1 --partitions 4
+              kubectl exec $KAFKA_DOCKER -- kafka-topics.sh --bootstrap-server kafka:9092 --create --topic product-update-service-event-channel --replication-factor 1 --partitions 4
+      restartPolicy: Never
+  backoffLimit: 4
