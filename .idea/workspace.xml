@@ -5,46 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4387c2cc-3214-4bf6-b1c9-c8f1bd81ff7f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/apply_all_deployments.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/checksums/checksums.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/checksums/md5-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/checksums/sha1-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/executionHistory/executionHistory.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/fileHashes/fileHashes.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.4/fileHashes/resourceHashesCache.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/workspace-id.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/workspace-id.txt.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-common/build/libs/api-common.jar" beforeDir="false" afterPath="$PROJECT_DIR$/api-common/build/libs/api-common.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api_gateway.deployment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/api_gateway.deployment.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appy_all_deployments.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/do-init-orders-k8s.yml" beforeDir="false" afterPath="$PROJECT_DIR$/do-init-orders-k8s.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/do-init-products-k8s.yml" beforeDir="false" afterPath="$PROJECT_DIR$/do-init-products-k8s.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/do-validate-orders-k8s.yml" beforeDir="false" afterPath="$PROJECT_DIR$/do-validate-orders-k8s.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/order-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order-validation-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/order-validation-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order_service.deployment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/order_service.deployment.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/order_validation_service.deployment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/order_validation_service.deployment.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/persistentvolume_kafka_data.deployment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/persistentvolume_kafka_data.deployment.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/postgres_orderservice.deployment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/postgres_orderservice.deployment.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/postgres_ordervalidationservice.deployment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/postgres_ordervalidationservice.deployment.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/postgres_productservice.deployment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/postgres_productservice.deployment.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/product-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product_service.deployment.yml" beforeDir="false" afterPath="$PROJECT_DIR$/product_service.deployment.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/push-docker-hub.sh" beforeDir="false" afterPath="$PROJECT_DIR$/push-docker-hub.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/start-topics-k8s.yml" beforeDir="false" afterPath="$PROJECT_DIR$/start-topics-k8s.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/stop-topics-k8s.yml" beforeDir="false" afterPath="$PROJECT_DIR$/stop-topics-k8s.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +50,7 @@
     "Shell Script.appy_all_deployments.sh.executor": "Run",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/frade/Documents/Intellij/asw-ordermanager-1-Kubernetes",
+    "last_opened_file_path": "C:/Users/frade/Documents/Intellij/asw-ordermanager-dh/asw-ordermanager-dh",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -185,7 +147,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1707666749441</updated>
-      <workItem from="1707666750495" duration="1827000" />
+      <workItem from="1707666750495" duration="2955000" />
     </task>
     <servers />
   </component>
