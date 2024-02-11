@@ -1,3 +1,27 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: default
+  name: pod-reader
+rules:
+  - apiGroups: [""]
+    resources: ["pods", "pods/exec"]
+    verbs: ["get", "list", "watch", "create"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: read-pods
+  namespace: default
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: default
+roleRef:
+  kind: Role
+  name: pod-reader
+  apiGroup: rbac.authorization.k8s.io
+---
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -11,9 +35,11 @@ spec:
           command: ["/bin/bash", "-c"]
           args:
             - |
-              KAFKA_DOCKER=$(kubectl get pods | grep kafka | grep -v zookeeper | awk '{print $1}')
+              echo "Creating topics"
+              KAFKA_DOCKER=$(kubectl get pods -l app=kafka -o jsonpath="{.items[0].metadata.name}")
               kubectl exec $KAFKA_DOCKER -- kafka-topics.sh --bootstrap-server kafka:9092 --create --topic order-service-event-channel --replication-factor 1 --partitions 4
               kubectl exec $KAFKA_DOCKER -- kafka-topics.sh --bootstrap-server kafka:9092 --create --topic product-service-event-channel --replication-factor 1 --partitions 4
               kubectl exec $KAFKA_DOCKER -- kafka-topics.sh --bootstrap-server kafka:9092 --create --topic product-update-service-event-channel --replication-factor 1 --partitions 4
+              echo "Topics created"
       restartPolicy: Never
   backoffLimit: 4

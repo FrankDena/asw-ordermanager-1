@@ -1,0 +1,27 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: init-products
+spec:
+  template:
+    spec:
+      containers:
+        - name: init-products
+          image: curlimages/curl:latest
+          command: ["/bin/sh", "-c"]
+          args:
+            - |
+              curl -X POST "http://api-gateway:8080/productservice/products" -H "accept: */*" -H "Content-Type: application/json" \
+                   -d "{ \"name\": \"Guerra e Pace\", \"category\": \"Libro\", \"stockLevel\": \"3\", \"price\": \"19.99\" }"
+              curl -X POST "http://api-gateway:8080/productservice/products" -H "accept: */*" -H "Content-Type: application/json" \
+                   -d "{ \"name\": \"Anna Karenina\", \"category\": \"Libro\", \"stockLevel\": \"2\", \"price\": \"10.99\" }"
+              curl -X POST "http://api-gateway:8080/productservice/products" -H "accept: */*" -H "Content-Type: application/json" \
+                   -d "{ \"name\": \"I promessi sposi\", \"category\": \"Libro\", \"stockLevel\": \"2\", \"price\": \"9.99\" }"
+              curl -X POST "http://api-gateway:8080/productservice/products" -H "accept: */*" -H "Content-Type: application/json" \
+                   -d "{ \"name\": \"Il Signore degli Anelli\", \"category\": \"Libro\", \"stockLevel\": \"3\", \"price\": \"29.99\" }"
+              curl -X POST "http://api-gateway:8080/productservice/products" -H "accept: */*" -H "Content-Type: application/json" \
+                   -d "{ \"name\": \"1984\", \"category\": \"Libro\", \"stockLevel\": \"5\", \"price\": \"8.99\" }"
+              curl -X POST "http://api-gateway:8080/productservice/products" -H "accept: */*" -H "Content-Type: application/json" \
+                   -d "{ \"name\": \"The Dark Side Of The Moon\", \"category\": \"Musica\", \"stockLevel\": \"4\", \"price\": \"19.99\" }"
+      restartPolicy: Never
+  backoffLimit: 4

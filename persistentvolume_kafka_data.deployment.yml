@@ -9,7 +9,7 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: /run/desktop/mnt/host/c/Users/h.zheng/var/data/kafka
+    path: /run/desktop/mnt/host/c/var/data/kafka
     type: DirectoryOrCreate
 
 ---

@@ -16,7 +16,7 @@ spring:
         healthCheckCriticalTimeout: 45s
         # consul deve restituire solo servizi che passano l'health check (default=false) 
         queryPassing: true
-        #hostname: host.docker.internal
+        hostname: api-gateway
     loadbalancer: 
       ribbon.enabled: false 
     # spring cloud gateway routes 

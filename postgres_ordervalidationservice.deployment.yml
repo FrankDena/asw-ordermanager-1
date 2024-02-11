@@ -30,7 +30,7 @@ spec:
       volumes:
         - name: postgres-data
           hostPath:
-            path: /run/desktop/mnt/host/c/Users/h.zheng/var/data/ordersproducts
+            path: /run/desktop/mnt/host/c/var/data/ordersproducts
             type: DirectoryOrCreate
 ---
 apiVersion: v1

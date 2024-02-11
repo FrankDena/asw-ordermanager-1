@@ -17,13 +17,13 @@ spring:
         healthCheckCriticalTimeout: 45s
         # consul deve restituire solo servizi che passano l'health check (default=false) 
         queryPassing: true
-       # hostname: host.docker.internal
+        hostname: order-service
     loadbalancer: 
       ribbon.enabled: false
   # POSTGRES
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://host.docker.internal:5432/orderservice
+    url: jdbc:postgresql://postgres-orderservice:5432/orderservice
     username: postgres
     password: postgres
   # JPA
@@ -53,12 +53,12 @@ spring:
             trusted:
               packages: '*'
       value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
-    bootstrap-servers: host.docker.internal:9092
+    bootstrap-servers: kafka:9092
 
 server: 
-  port: ${PORT:${SERVER_PORT:0}}
+#  port: ${PORT:${SERVER_PORT:0}}
 #  port: 8080
-#  port: 8081 
+  port: 8081
   # per swagger dietro un api gateway 
   forward-headers-strategy: framework
   
